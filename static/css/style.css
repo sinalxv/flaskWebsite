@@ -1,0 +1,66 @@
+/* static/css/style.css */
+/* Base styles for all elements to ensure consistent box model */
+* {
+    box-sizing: border-box;
+}
+
+/* Body styles: sets font, background, and centers content vertically and horizontally */
+@import url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css');
+body {
+    font-family: 'Vazir', 'Inter', sans-serif; /* Uses Vazir as primary font */
+    background-color: #f0f2f5; /* Light gray background */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    min-height: 100vh; /* Ensures body takes at least full viewport height */
+    margin: 0; /* Removes default body margin */
+}
+
+/* Container styles: defines the main content area */
+.container {
+    background-color: #ffffff; /* White background for the container */
+    padding: 2rem; /* Inner padding */
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%; /* Takes full width of its parent, up to max-width */
+    max-width: 600px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Centers the container horizontally */
+    text-align: center; /* Default text alignment for general pages */
+}
+
+/* Flash message styles: for displaying success, error, info messages */
+.flash-message {
+    padding: 0.75rem 1.25rem; /* Padding inside the message box */
+    margin-bottom: 1rem; /* Space below the message box */
+    border: 1px solid transparent; /* Transparent border */
+    border-radius: 0.75rem; /* Rounded corners for the message box */
+    text-align: right; /* Text aligned to the right for RTL */
+}
+
+/* Specific styles for success flash messages */
+.flash-success {
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Green border */
+    color: #155724; /* Dark green text */
+}
+
+/* Specific styles for danger/error flash messages */
+.flash-danger {
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Red border */
+    color: #721c24; /* Dark red text */
+}
+
+/* Specific styles for info flash messages */
+.flash-info {
+    background-color: #d1ecf1; /* Light blue background */
+    border-color: #bee5eb; /* Blue border */
+    color: #0c5460; /* Dark blue text */
+}
+
+/* Specific styles for warning flash messages */
+.flash-warning {
+    background-color: #fff3cd; /* Light yellow background */
+    border-color: #ffeeba; /* Yellow border */
+    color: #856404; /* Dark yellow text */
+}

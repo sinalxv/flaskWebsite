@@ -1,0 +1,74 @@
+{% extends "profile/layout.html" %}
+
+{% block profile_content %}
+<form method="POST" action="" enctype="multipart/form-data" class="text-right">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-6 text-center">
+        <img src="{{ avatar_path }}" alt="تصویر پروفایل" class="avatar-preview">
+        <div class="form-group mt-4 inline-block">
+            {{ form.avatar.label(class="block mb-2 text-sm text-gray-700 cursor-pointer") }}
+            {{ form.avatar(class="hidden") }}
+            <label for="avatar" class="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 cursor-pointer text-center">
+                انتخاب تصویر جدید
+            </label>
+            {% if form.avatar.errors %}
+                {% for error in form.avatar.errors %}
+                    <span class="error-message text-red-500 text-xs">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <p class="text-xs text-gray-500 mt-1">PNG, JPG, JPEG, GIF - حداکثر 16MB</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="form-group">
+            {{ form.first_name.label(class="mb-2 text-sm") }}
+            {{ form.first_name(class="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder="نام شما") }}
+            {% if form.first_name.errors %}
+                {% for error in form.first_name.errors %}
+                    <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.last_name.label(class="mb-2 text-sm") }}
+            {{ form.last_name(class="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder="نام خانوادگی شما") }}
+            {% if form.last_name.errors %}
+                {% for error in form.last_name.errors %}
+                    <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group mt-6">
+        <label class="mb-2 text-sm block">ایمیل (غیر قابل ویرایش)</label>
+        <input type="email" value="{{ current_user.email }}" class="block w-full p-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" disabled>
+    </div>
+
+    <div class="form-group mt-6">
+        {{ form.phone_number.label(class="mb-2 text-sm") }}
+        {{ form.phone_number(class="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder="شماره تماس (اختیاری)") }}
+        {% if form.phone_number.errors %}
+            {% for error in form.phone_number.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="form-group mt-6">
+        {{ form.bio.label(class="mb-2 text-sm") }}
+        {{ form.bio(class="block w-full p-2 border border-gray-300 rounded-md h-32 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder="کمی درباره خودتان بنویسید (اختیاری)") }}
+        {% if form.bio.errors %}
+            {% for error in form.bio.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="mt-8 text-center">
+        {{ form.submit(class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 cursor-pointer") }}
+    </div>
+</form>
+{% endblock %}

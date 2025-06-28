@@ -1,0 +1,65 @@
+/* static/css/form.css */
+/* Styles for container specifically used by forms */
+.container.form-container {
+    max-width: 450px; /* A narrower max-width for forms */
+    padding: 2.5rem; /* Increased padding for form containers */
+    text-align: unset; /* Overrides the general center alignment for form text */
+}
+
+/* Styles for form group labels */
+.form-group label {
+    display: block; /* Makes the label take its own line */
+    margin-bottom: 0.5rem; /* Space below the label */
+    font-weight: 600; /* Bolder text for labels */
+    color: #4a5568; /* Dark gray text color */
+    text-align: right; /* Text aligned to the right for RTL */
+}
+
+/* Styles for form input fields (email, password, etc.) */
+.form-group input {
+    width: 100%; /* Inputs take full width of their parent */
+    padding: 0.75rem; /* Inner padding for inputs */
+    border: 1px solid #cbd5e0; /* Light gray border */
+    border-radius: 0.5rem; /* Rounded corners for inputs */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    transition: border-color 0.2s; /* Smooth transition for border color on focus */
+    text-align: right; /* Text aligned to the right for RTL */
+}
+
+/* Styles for input fields when they are in focus */
+.form-group input:focus {
+    outline: none; /* Removes default outline */
+    border-color: #4299e1; /* Blue border on focus */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); /* Blue glow on focus */
+}
+
+/* Styles for error messages displayed below form fields */
+.form-group .error-message {
+    color: #e53e3e; /* Red text for error messages */
+    font-size: 0.875rem; /* Smaller font size for errors */
+    margin-top: 0.25rem; /* Space above the error message */
+    text-align: right; /* Text aligned to the right for RTL */
+}
+
+/* Styles for checkbox groups (e.g., "Remember me") */
+.checkbox-group {
+    display: flex; /* Uses flexbox for alignment */
+    align-items: center; /* Vertically aligns items in the center */
+    justify-content: flex-end; /* Aligns items to the right for RTL */
+    margin-bottom: 1.5rem; /* Space below the checkbox group */
+}
+
+/* Specific styles for checkbox input */
+.checkbox-group input[type="checkbox"] {
+    margin-left: 0.5rem; /* Space to the left of the checkbox in RTL */
+    margin-right: 0; /* Ensures no right margin */
+    width: auto; /* Checkbox width is determined by content */
+}
+
+/* Styles for checkbox labels */
+.checkbox-group label {
+    margin-bottom: 0; /* No bottom margin */
+    font-weight: 400; /* Normal font weight */
+    color: #4a5568; /* Dark gray text color */
+    text-align: right; /* Text aligned to the right for RTL */
+}

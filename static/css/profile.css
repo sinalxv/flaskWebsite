@@ -1,0 +1,153 @@
+/* static/css/profile.css */
+
+/* Main layout for profile page */
+.profile-layout-container {
+    display: flex;
+    flex-direction: column; /* Stacks sidebar and content vertically on small screens */
+    width: 100%;
+    max-width: 1200px; /* Max width for the whole profile area */
+    min-height: 90vh; /* Minimum height for the container */
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures no content spills out */
+    margin: 1rem auto; /* Centers the profile container on the page */
+}
+
+/* Responsive adjustment for medium and larger screens */
+@media (min-width: 768px) { /* Tailwind's md breakpoint */
+    .profile-layout-container {
+        flex-direction: row-reverse; /* Sidebar on the right for RTL */
+        min-height: 80vh; /* Adjust height for larger screens */
+    }
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 100%; /* Full width on small screens */
+    background-color: #1a202c; /* Dark background for sidebar */
+    padding: 1.5rem 1rem;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 250px; /* Fixed width on larger screens */
+        min-height: 100%; /* Ensures sidebar takes full height */
+        /* Removed flex-shrink-0 from here to allow proper width control */
+    }
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #cbd5e0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #cbd5e0; /* Light gray link color */
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, color 0.2s;
+    text-align: right; /* Right align text for RTL */
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background-color: #2d3748; /* Darker background on hover/active */
+    color: #ffffff;
+}
+
+/* Dropdown menu styles (for future use or if JS is added) */
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    background-color: #2d3748; /* Darker background for dropdown */
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensures rounded corners are respected */
+}
+
+.dropdown-menu li {
+    margin-bottom: 0; /* No margin between dropdown items */
+}
+
+.dropdown-menu a {
+    padding: 0.5rem 1.5rem; /* Smaller padding for sub-items */
+    color: #a0aec0; /* Lighter gray for sub-item links */
+}
+
+.dropdown-menu a:hover {
+    background-color: #4a5568; /* Even darker background on hover */
+    color: #ffffff;
+}
+
+/* Main content area */
+.main-content {
+    flex-grow: 1; /* Takes up remaining space */
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100%; /* Ensures main content takes full height when sidebar is fixed */
+}
+
+/* Specific styles for avatar in profile edit */
+.avatar-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #cbd5e0;
+    display: block;
+    margin: 1rem auto; /* Center the avatar */
+}
+
+/* Progress bar for courses */
+.progress-bar-container {
+    background-color: #e2e8f0; /* Light background for the bar */
+    border-radius: 0.5rem;
+    height: 1rem;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #48bb78; /* Green for progress */
+    border-radius: 0.5rem;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Custom styles for tables (e.g., order history, tickets) */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    direction: rtl; /* Ensure table content is RTL */
+    text-align: right; /* Default text alignment for table cells */
+}
+
+.data-table th, .data-table td {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.data-table th {
+    background-color: #edf2f7; /* Light gray for table headers */
+    font-weight: 600;
+    text-align: right;
+}

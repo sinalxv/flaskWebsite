@@ -1,0 +1,264 @@
+/* static/css/admin.css */
+
+/* Main layout for admin panel */
+.admin-layout-container {
+    display: flex;
+    flex-direction: column; /* Stacks sidebar and content vertically on small screens */
+    width: 100%;
+    max-width: 1400px; /* Wider max width for admin area */
+    min-height: 90vh; /* Minimum height for the container */
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures no content spills out */
+    margin: 1rem auto; /* Centers the admin container on the page */
+}
+
+/* Responsive adjustment for medium and larger screens */
+@media (min-width: 768px) { /* Tailwind's md breakpoint */
+    .admin-layout-container {
+        flex-direction: row-reverse; /* Sidebar on the right for RTL */
+        min-height: 80vh; /* Adjust height for larger screens */
+    }
+}
+
+/* Sidebar styling */
+.admin-sidebar {
+    width: 100%; /* Full width on small screens */
+    background-color: #1a202c; /* Dark background for sidebar */
+    padding: 1.5rem 1rem;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
+}
+
+@media (min-width: 768px) {
+    .admin-sidebar {
+        width: 280px; /* Fixed width on larger screens */
+        min-height: 100%; /* Ensures sidebar takes full height */
+    }
+}
+
+.admin-sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #cbd5e0;
+}
+
+.admin-sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.admin-sidebar-nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #cbd5e0; /* Light gray link color */
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, color 0.2s;
+    text-align: right; /* Right align text for RTL */
+}
+
+.admin-sidebar-nav a:hover,
+.admin-sidebar-nav a.active {
+    background-color: #2d3748; /* Darker background on hover/active */
+    color: #ffffff;
+}
+
+/* Dropdown menu styles */
+.admin-dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    background-color: #2d3748; /* Darker background for dropdown */
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensures rounded corners are respected */
+}
+
+.admin-dropdown-menu li {
+    margin-bottom: 0; /* No margin between dropdown items */
+}
+
+.admin-dropdown-menu a {
+    padding: 0.5rem 1.5rem; /* Smaller padding for sub-items */
+    color: #a0aec0; /* Lighter gray for sub-item links */
+}
+
+.admin-dropdown-menu a:hover {
+    background-color: #4a5568; /* Even darker background on hover */
+    color: #ffffff;
+}
+
+/* Main content area */
+.admin-main-content {
+    flex-grow: 1; /* Takes up remaining space */
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100%; /* Ensures main content takes full height when sidebar is fixed */
+}
+
+/* General table styles for admin panel */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    direction: rtl; /* Ensure table content is RTL */
+    text-align: right; /* Default text alignment for table cells */
+    font-size: 0.9rem; /* Slightly smaller font for tables */
+}
+
+.admin-table th, .admin-table td {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.admin-table th {
+    background-color: #edf2f7; /* Light gray for table headers */
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap; /* Prevent headers from wrapping too much */
+}
+
+.admin-table tbody tr:nth-child(even) {
+    background-color: #f9fafb; /* Slightly different background for even rows */
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f0f4f7; /* Hover effect for rows */
+}
+
+/* Form specific overrides within admin */
+.admin-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4a5568;
+    text-align: right;
+}
+.admin-form-group input,
+.admin-form-group textarea,
+.admin-form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    text-align: right; /* For text inputs */
+    direction: rtl; /* For text inputs */
+}
+.admin-form-group select {
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22currentColor%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.293%207.293a1%201%200%20011.414%200L10%2010.586l3.293-3.293a1%201%200%20111.414%201.414l-4%204a1%201%200%2001-1.414%200l-4-4a1%201%200%20010-1.414z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center; /* Position arrow on the left for RTL */
+    background-size: 1.5rem;
+    padding-left: 2.5rem; /* Make space for arrow */
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus,
+.admin-form-group select:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.admin-form-group .error-message {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    text-align: right;
+}
+
+/* Image preview for admin forms */
+.admin-image-preview {
+    max-width: 200px;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    border: 1px solid #e2e8f0;
+    display: block; /* Ensures it's on its own line */
+    margin-right: auto; /* Centers in RTL when block */
+    margin-left: auto;
+}
+
+/* Buttons in admin panel */
+.admin-button-primary {
+    background-color: #4299e1;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.admin-button-primary:hover {
+    background-color: #3182ce;
+}
+
+.admin-button-danger {
+    background-color: #e53e3e;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.admin-button-danger:hover {
+    background-color: #c53030;
+}
+
+.admin-button-secondary {
+    background-color: #a0aec0;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.admin-button-secondary:hover {
+    background-color: #718096;
+}
+
+/* Stats cards for dashboard */
+.stat-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.stat-card-icon {
+    font-size: 3rem;
+    opacity: 0.4;
+}
+
+/* Specific styling for dropdown toggle icon in RTL */
+.admin-dropdown-toggle::before { /* Changed from ::after to ::before */
+    content: '\25b6'; /* Unicode right-pointing triangle for RTL */
+    margin-left: 0.5rem; /* Space to the right of the icon */
+    float: right; /* Pushes the arrow to the right in RTL */
+    transition: transform 0.2s ease-in-out;
+}
+.admin-dropdown-toggle.active::before { /* Changed from ::after to ::before */
+    transform: rotate(90deg); /* Rotates to point down when active */
+}
+

@@ -1,0 +1,47 @@
+{% extends "profile/layout.html" %}
+
+{% block profile_content %}
+<div class="text-right mb-6">
+    <p class="text-gray-700">اینجا تاریخچه تمام سفارشات و خریدهای شما را مشاهده می‌کنید.</p>
+</div>
+
+{% if orders %}
+    <div class="overflow-x-auto rounded-lg shadow-md">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>شماره سفارش</th>
+                    <th>تاریخ خرید</th>
+                    <th>اقلام</th>
+                    <th>مبلغ</th>
+                    <th>وضعیت</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.date }}</td>
+                    <td>
+                        <ul class="list-none p-0 m-0">
+                            {% for item in order.items %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ order.amount }}</td>
+                    <td><span class="px-2 py-1 rounded-full text-xs font-semibold
+                        {% if order.status == 'تکمیل شده' %}bg-green-100 text-green-800
+                        {% elif order.status == 'در حال بررسی' %}bg-yellow-100 text-yellow-800
+                        {% else %}bg-gray-100 text-gray-800{% endif %}">
+                        {{ order.status }}
+                    </span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="text-gray-700">شما هنوز هیچ سفارشی ثبت نکرده‌اید.</p>
+{% endif %}
+{% endblock %}

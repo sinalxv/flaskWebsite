@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - برنامه احراز هویت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links to external CSS files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Flash messages (temporary messages from Flask) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="list-none p-0">
+                    {% for category, message in messages %}
+                        <li class="flash-message flash-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">به برنامه احراز هویت ما خوش آمدید!</h1>
+
+        {% if current_user.is_authenticated %}
+            <p class="text-lg text-gray-700 mb-4">شما وارد شده‌اید به عنوان: <span class="font-semibold">{{ current_user.email }}</span></p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="{{ url_for('dashboard') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">
+                    داشبورد من
+                </a>
+                <a href="{{ url_for('logout') }}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">
+                    خروج
+                </a>
+            </div>
+        {% else %}
+            <p class="text-lg text-gray-700 mb-6">لطفاً برای دسترسی به امکانات، وارد شوید یا ثبت نام کنید.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="{{ url_for('login') }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">
+                    ورود
+                </a>
+                <a href="{{ url_for('register') }}" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">
+                    ثبت نام
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
