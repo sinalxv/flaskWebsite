@@ -27,7 +27,7 @@
         {% if current_user.is_authenticated %}
             <p class="text-lg text-gray-700 mb-4">شما وارد شده‌اید به عنوان: <span class="font-semibold">{{ current_user.email }}</span></p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="{{ url_for('dashboard') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">
+                <a href="{{ url_for('profile_dashboard') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">
                     داشبورد من
                 </a>
                 <a href="{{ url_for('logout') }}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-decoration-none">

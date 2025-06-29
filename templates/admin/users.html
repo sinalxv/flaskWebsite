@@ -1,0 +1,33 @@
+{% extends 'profile/layout.html' %}
+{% block content %}
+<h2>مدیریت کاربران</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ایمیل</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>ادمین؟</th>
+            <th>تایید ایمیل</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.email|e }}</td>
+            <td>{{ user.first_name|e }}</td>
+            <td>{{ user.last_name|e }}</td>
+            <td>{{ 'بله' if user.is_admin else 'خیر' }}</td>
+            <td>{{ 'بله' if user.email_confirmed else 'خیر' }}</td>
+            <td>
+                <a href="{{ url_for('admin_edit_user', user_id=user.id) }}" class="btn btn-sm btn-primary">ویرایش</a>
+                {% if not user.is_admin %}
+                <a href="{{ url_for('admin_delete_user', user_id=user.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('آیا مطمئن هستید؟')">حذف</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

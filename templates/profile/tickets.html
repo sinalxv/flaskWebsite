@@ -1,0 +1,15 @@
+{% extends "profile/layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">تیکت‌های پشتیبانی</h2>
+    {% if tickets and tickets|length > 0 %}
+        <ul class="list-group">
+            {% for ticket in tickets %}
+                <li class="list-group-item">{{ ticket }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info">شما هنوز هیچ تیکتی ثبت نکرده‌اید.</div>
+    {% endif %}
+</div>
+{% endblock %}

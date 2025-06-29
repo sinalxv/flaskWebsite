@@ -1,0 +1,15 @@
+{% extends "profile/layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">علاقه‌مندی‌ها</h2>
+    {% if favorites and favorites|length > 0 %}
+        <ul class="list-group">
+            {% for fav in favorites %}
+                <li class="list-group-item">{{ fav }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info">شما هنوز هیچ دوره‌ای را به علاقه‌مندی‌ها اضافه نکرده‌اید.</div>
+    {% endif %}
+</div>
+{% endblock %}

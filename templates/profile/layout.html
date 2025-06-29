@@ -66,14 +66,12 @@
                 <ul>
                     <li><a href="{{ url_for('profile_dashboard') }}" class="{% if request.path == url_for('profile_dashboard') %}active{% endif %}"><i class="fas fa-tachometer-alt ml-2"></i> پیشخوان کاربری</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle {% if request.path in [url_for('profile_edit'), url_for('profile_security')] %}active{% endif %}" onclick="toggleDropdown(event, 'settingsDropdown')"><i class="fas fa-user-cog ml-2"></i> تنظیمات حساب</a>
-                        <ul id="settingsDropdown" class="dropdown-content {% if request.path in [url_for('profile_edit'), url_for('profile_security')] %}active{% endif %}">
+                        <a href="#" class="dropdown-toggle {% if request.path == url_for('profile_edit') %}active{% endif %}" onclick="toggleDropdown(event, 'settingsDropdown')"><i class="fas fa-user-cog ml-2"></i> تنظیمات حساب</a>
+                        <ul id="settingsDropdown" class="dropdown-content {% if request.path == url_for('profile_edit') %}active{% endif %}">
                             <li><a href="{{ url_for('profile_edit') }}" class="{% if request.path == url_for('profile_edit') %}active{% endif %}"><i class="fas fa-user ml-2"></i> اطلاعات شخصی</a></li>
-                            <li><a href="{{ url_for('profile_security') }}" class="{% if request.path == url_for('profile_security') %}active{% endif %}"><i class="fas fa-lock ml-2"></i> امنیت / تغییر رمز عبور</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ url_for('profile_courses') }}" class="{% if request.path == url_for('profile_courses') %}active{% endif %}"><i class="fas fa-book-open ml-2"></i> دوره‌های من</a></li>
-                    <li><a href="{{ url_for('profile_orders') }}" class="{% if request.path == url_for('profile_orders') %}active{% endif %}"><i class="fas fa-shopping-cart ml-2"></i> تاریخچه سفارشات</a></li>
                     <li><a href="{{ url_for('profile_favorites') }}" class="{% if request.path == url_for('profile_favorites') %}active{% endif %}"><i class="fas fa-heart ml-2"></i> علاقه‌مندی‌ها</a></li>
                     <li><a href="{{ url_for('profile_tickets') }}" class="{% if request.path == url_for('profile_tickets') %}active{% endif %}"><i class="fas fa-life-ring ml-2"></i> تیکت‌های پشتیبانی</a></li>
                     <li class="mt-4"><a href="{{ url_for('logout') }}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg text-decoration-none transition duration-300 block text-center"><i class="fas fa-sign-out-alt ml-2"></i> خروج</a></li>
