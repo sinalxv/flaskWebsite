@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان صفحه به صورت داینامیک از صفحات دیگر گرفته می‌شود -->
+    <title>{% block title %}{% endblock %} - پنل مدیریت</title>
+    <!-- استایل‌های پروفایل برای ساختار کلی و استایل‌های ادمین برای موارد خاص -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="admin-layout-container">
+        <!-- سایدبار جدید و مخصوص پنل مدیریت -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h3>پنل مدیریت</h3>
+                <p>{{ current_user.full_name }}</p>
+            </div>
+            <nav>
+                <ul>
+                    <!-- لینک‌ها فعال بودن خود را بر اساس صفحه فعلی نشان می‌دهند -->
+                    <li class="{% if request.endpoint == 'admin_users' %}active{% endif %}">
+                        <a href="{{ url_for('admin_users') }}">مدیریت کاربران</a>
+                    </li>
+                    <li class="{% if request.endpoint == 'admin_courses' %}active{% endif %}">
+                        <a href="{{ url_for('admin_courses') }}">مدیریت دوره‌ها</a>
+                    </li>
+                    <li class="{% if request.endpoint == 'admin_add_course' %}active{% endif %}">
+                        <a href="{{ url_for('admin_add_course') }}">ساخت دوره جدید</a>
+                    </li>
+                    <li><a href="{{ url_for('home') }}">بازگشت به سایت</a></li>
+                    <li><a href="{{ url_for('logout') }}">خروج</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="admin-main-content">
+            <!-- نمایش پیام‌های فلش (موفقیت، خطا و ...) -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- محتوای اصلی هر صفحه در این بلاک قرار می‌گیرد -->
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

@@ -1,23 +1,26 @@
-{% extends 'profile/layout.html' %}
+{% extends 'admin/layout.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-entities.css') }}">
+{% endblock %}
 {% block content %}
 <h2>{% if course %}ویرایش دوره{% else %}افزودن دوره{% endif %}</h2>
-<form method="post">
+<form method="post" class="admin-entity-form">
     {{ form.hidden_tag() }}
     <div class="form-group">
         {{ form.title.label }}
-        {{ form.title(class="form-control") }}
+        {{ form.title(class_="form-control") }}
     </div>
     <div class="form-group">
         {{ form.instructor.label }}
-        {{ form.instructor(class="form-control") }}
+        {{ form.instructor(class_="form-control") }}
     </div>
     <div class="form-group">
         {{ form.description.label }}
-        {{ form.description(class="form-control", rows=4) }}
+        {{ form.description(class_="form-control", rows=4) }}
     </div>
     <div class="form-group">
         {{ form.image_url.label }}
-        {{ form.image_url(class="form-control") }}
+        {{ form.image_url(class_="form-control") }}
     </div>
     <button type="submit" class="btn btn-primary">ذخیره</button>
     <a href="{{ url_for('admin_courses') }}" class="btn btn-secondary">بازگشت</a>

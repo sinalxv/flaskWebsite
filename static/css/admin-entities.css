@@ -1,0 +1,127 @@
+/* admin-entities.css - استایل اختصاصی جداول و فرم‌های مدیریت کاربران و دوره‌ها */
+
+/* جدول مدیریت کاربران و دوره‌ها */
+.admin-entity-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  direction: rtl;
+  text-align: right;
+  font-size: 1rem;
+}
+.admin-entity-table th, .admin-entity-table td {
+  padding: 1rem 0.8rem;
+  border: 1px solid #e2e8f0;
+}
+.admin-entity-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+.admin-entity-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+.admin-entity-table tbody tr:hover {
+  background: #e2e8f0;
+  transition: background 0.18s;
+}
+
+/* دکمه‌های جدول */
+.admin-entity-table .btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 0.97rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.admin-entity-table .btn-primary {
+  background: linear-gradient(90deg, #4299e1 60%, #3182ce 100%);
+  color: #fff;
+}
+.admin-entity-table .btn-primary:hover {
+  background: linear-gradient(90deg, #3182ce 60%, #4299e1 100%);
+}
+.admin-entity-table .btn-danger {
+  background: linear-gradient(90deg, #e53e3e 60%, #c53030 100%);
+  color: #fff;
+}
+.admin-entity-table .btn-danger:hover {
+  background: linear-gradient(90deg, #c53030 60%, #e53e3e 100%);
+}
+
+/* فرم‌های مدیریت */
+.admin-entity-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem 1.5rem;
+}
+.admin-entity-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.admin-entity-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  text-align: right;
+}
+.admin-entity-form input,
+.admin-entity-form textarea,
+.admin-entity-form select {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+  transition: border-color 0.18s;
+  text-align: right;
+  direction: rtl;
+  background: #f8fafc;
+  font-size: 1rem;
+}
+.admin-entity-form input:focus,
+.admin-entity-form textarea:focus,
+.admin-entity-form select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 2px rgba(66,153,225,0.18);
+}
+.admin-entity-form .error-message {
+  color: #e53e3e;
+  font-size: 0.93rem;
+  margin-top: 0.25rem;
+  text-align: right;
+}
+.admin-entity-form .btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.admin-entity-form .btn-primary {
+  background: linear-gradient(90deg, #4299e1 60%, #3182ce 100%);
+  color: #fff;
+}
+.admin-entity-form .btn-primary:hover {
+  background: linear-gradient(90deg, #3182ce 60%, #4299e1 100%);
+}
+.admin-entity-form .btn-secondary {
+  background: #a0aec0;
+  color: #fff;
+}
+.admin-entity-form .btn-secondary:hover {
+  background: #718096;
+}

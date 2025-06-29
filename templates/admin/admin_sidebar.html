@@ -1,0 +1,46 @@
+<!-- admin_sidebar.html - سایدبار اختصاصی ادمین -->
+<aside class="admin-sidebar">
+  <ul>
+    <li><a href="{{ url_for('admin.dashboard') }}">داشبورد ادمین</a></li>
+    <li><a href="{{ url_for('admin.users') }}">مدیریت کاربران</a></li>
+    <li><a href="{{ url_for('admin.create_course') }}">ساخت دوره جدید</a></li>
+    <li><a href="{{ url_for('admin.courses') }}">مدیریت دوره‌ها</a></li>
+    <li><a href="{{ url_for('admin.orders') }}">مدیریت سفارش‌ها</a></li>
+    <li><a href="{{ url_for('admin.tickets') }}">مدیریت تیکت‌ها</a></li>
+    <li><a href="{{ url_for('auth.logout') }}">خروج</a></li>
+  </ul>
+</aside>
+
+<style>
+.admin-sidebar {
+  width: 220px;
+  background: #222e3c;
+  color: #fff;
+  min-height: 100vh;
+  padding: 30px 0 0 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.admin-sidebar ul li {
+  margin: 20px 0;
+}
+.admin-sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 10px 30px;
+  display: block;
+  border-radius: 8px 0 0 8px;
+  transition: background 0.2s;
+}
+.admin-sidebar ul li a:hover, .admin-sidebar ul li a.active {
+  background: #1a2230;
+}
+</style>

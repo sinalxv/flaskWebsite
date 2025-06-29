@@ -1,7 +1,10 @@
-{% extends 'profile/layout.html' %}
+{% extends 'admin/layout.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-entities.css') }}">
+{% endblock %}
 {% block content %}
 <h2>مدیریت کاربران</h2>
-<table class="table table-bordered table-striped">
+<table class="admin-entity-table">
     <thead>
         <tr>
             <th>ایمیل</th>
